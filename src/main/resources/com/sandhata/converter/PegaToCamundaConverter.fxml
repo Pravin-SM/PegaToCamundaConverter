@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane id="parentBorderpane" fx:id="parentBorderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sandhata.converter.controller.PegaToCamundaConverterController">
+   <top>
+      <MenuBar id="menuBar" fx:id="menuBar" prefHeight="18.0" prefWidth="1099.0" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu id="fileMenu" fx:id="fileMenu" mnemonicParsing="false" onAction="#fileMenuSelected" text="File">
+            <items>
+                  <MenuItem id="newFileMenuItem" fx:id="newFileMenuItem" mnemonicParsing="false" onAction="#newFileMenuItemSelected" text="New" />
+                  <MenuItem id="openFileMenuItem" fx:id="openFileMenuItem" mnemonicParsing="false" onAction="#openFileMenuItemSelected" text="Open" />
+              <MenuItem id="closeFileMenuItem" fx:id="closeFileMenuItem" mnemonicParsing="false" onAction="#closeFileMenuItemSelected" text="Close" />
+            </items>
+          </Menu>
+          <Menu id="helpMenu" fx:id="helpMenu" mnemonicParsing="false" onAction="#hempMenuSelected" text="Help">
+            <items>
+              <MenuItem id="helpMenuItem" fx:id="helpMenuItem" mnemonicParsing="false" onAction="#helpMenuItemSelected" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <AnchorPane id="inputPane" fx:id="inputPane" minHeight="450.0" minWidth="185.0" prefHeight="500.0" prefWidth="265.0">
+         <children>
+            <BorderPane prefHeight="564.0" prefWidth="265.0" BorderPane.alignment="CENTER">
+               <left>
+                  <VBox id="inputPaneRootVBox" fx:id="inputPaneRootVBox" fillWidth="false" prefHeight="471.0" prefWidth="265.0" snapToPixel="false" spacing="20.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox id="inputPaneVBox" fx:id="inputPaneVBox" fillWidth="false" prefHeight="100.0" prefWidth="269.0" snapToPixel="false">
+                           <children>
+                              <VBox id="inputPanePegaVBox" fx:id="inputPanePegaVBox" fillWidth="false" prefHeight="72.0" prefWidth="271.0" snapToPixel="false" spacing="10.0">
+                                 <children>
+                                    <Label id="pegaInputFieldPathLabel" fx:id="pegaInputFieldPathLabel" prefHeight="27.0" prefWidth="271.0" snapToPixel="false" text="" />
+                                    <Button id="pegaFileInputButton" fx:id="pegaFileInputButton" mnemonicParsing="false" onAction="#pegaFileInputButtonClicked" prefHeight="39.0" prefWidth="265.0" snapToPixel="false" text="Select Pega XML File" />
+                                 </children>
+                              </VBox>
+                              <VBox id="inputPaneCamundaVBox" fx:id="inputPaneCamundaVBox" fillWidth="false" layoutX="10.0" layoutY="10.0" prefHeight="72.0" prefWidth="271.0" snapToPixel="false" spacing="10.0">
+                                 <children>
+                                    <Label id="camundaInputFieldPathLabel" fx:id="camundaInputFieldPathLabel" prefHeight="27.0" prefWidth="271.0" snapToPixel="false" text="" />
+                                    <Button id="camundaFileInputButton" fx:id="camundaFileInputButton" mnemonicParsing="false" onAction="#camundaFileInputButtonClicked" prefHeight="39.0" prefWidth="265.0" snapToPixel="false" text="Output Path for BPMN File" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="30.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <Button id="convertButton" fx:id="convertButton" mnemonicParsing="false" onAction="#convertButtonClicked" prefHeight="39.0" prefWidth="265.0" snapToPixel="false" style="-fx-background-color: #18e036; -fx-background-radius: 20;" text="Convert" textFill="#1833de">
+                           <styleClass>
+                              <String fx:value="Button" />
+                              <String fx:value="ConvertButton" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </VBox>
+               </left>
+            </BorderPane>
+            <Button id="downloadButtonClicked" fx:id="downloadButton" disable="true" layoutY="515.0" mnemonicParsing="false" onAction="#downloadButtonClicked" prefHeight="39.0" prefWidth="265.0" style="-fx-background-color: #18e036; -fx-background-radius: 20;" styleClass="Button" text="Download" textFill="#1833de" />
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane id="centerContentPane" fx:id="centerContentPane" minHeight="500.0" minWidth="265.0" prefHeight="561.0" prefWidth="730.0" snapToPixel="false" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="561.0" prefWidth="730.0">
+               <children>
+                  <HBox prefHeight="25.0" prefWidth="730.0" spacing="100.0">
+                     <children>
+                        <RadioButton id="camunda7RadioButton" fx:id="camunda7RadioButton" mnemonicParsing="false" onAction="#camunda7RadioButtonSelected" selected="true" text="Camunda 7">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="camundaVersion" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton id="camunda8RadioButton" fx:id="camunda8RadioButton" mnemonicParsing="false" onAction="#camunda8RadioButtonSelected" text="Camunda 8" toggleGroup="$camundaVersion" />
+                     </children>
+                     <padding>
+                        <Insets left="180.0" />
+                     </padding>
+                  </HBox>
+                  <TextArea id="outputTextArea" fx:id="outputTextArea" editable="false" prefHeight="532.0" prefWidth="730.0" snapToPixel="false" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
